@@ -3,6 +3,7 @@ package Cajero;
 public class Transaccion {
 	private int idTransaccion;
 	private double monto;
+	
 	public int getIdTransaccion() {
 		return idTransaccion;
 	}
@@ -16,8 +17,9 @@ public class Transaccion {
 		this.monto = monto;
 	}
 	
-	public void ejecutarTransaccion() {
-		return ;
+	public Transaccion(int idTransaccion, double monto) {
+		super();
+		this.idTransaccion = idTransaccion;
+		this.monto = monto;
 	}
-
 }

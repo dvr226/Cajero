@@ -1,17 +1,8 @@
 package Cajero;
 
 public class Cajero {
-	private int idCajero = 0;
-	private String nombre = "";
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+	private int idCajero;
+	private String nombreC;
 
 	public int getIdCajero() {
 		return idCajero;
@@ -21,9 +12,17 @@ public class Cajero {
 		this.idCajero = idCajero;
 	} 
 	
-	public void operarCajero() {
-	} 
-	
-	
+	public String getNombreC() {
+		return nombreC;
+	}
 
+	public void setNombreC(String nombreC) {
+		this.nombreC = nombreC;
+	}
+
+	public Cajero(int idCajero, String nombreC) {
+		super();
+		this.idCajero = idCajero;
+		this.nombreC = nombreC;
+	}
 }

@@ -1,0 +1,4 @@
+Banco:Banco
+ID Cajero: #123456
+Usuario:sdfghjk
+Numero de tarjeta: 1234567890

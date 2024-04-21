@@ -1,8 +1,11 @@
 package Cajero;
 
+import java.util.Scanner;
+
 public class CuentaBancaria {
-	private String numeroCuenta;
+	private String numeroCuenta = "0001";
 	private double saldo;
+	
 	public String getNumeroCuenta() {
 		return numeroCuenta;
 	}
@@ -16,32 +19,49 @@ public class CuentaBancaria {
 		this.saldo = saldo;
 	}
 	
-	public String consultarsaldo() {
-		System.out.println("Numero Cuenta " + numeroCuenta);
-	    System.out.println("Nombre y Apellido del Cliente: " +  "Pepito " + "Perez");
-	    System.out.println("Saldo total en la cuenta: $" + saldo);
-		return null;
+	public CuentaBancaria(String numeroCuenta, double saldo) {
+		super();
+		this.numeroCuenta = numeroCuenta;
+		this.saldo = saldo;
 	}
-	public boolean retirar(double cantidad) {
-		if (saldo >= cantidad && cantidad >= 0) {
-            saldo -= cantidad;
-            return true;
+	
+	
+	public void consultarsaldo() {
+		if (saldo>=0) {
+			System.out.println("Saldo total en la cuenta: $" + getSaldo());
+		}   
+	}
+	
+	public double retirar(Transaccion transaccion) {
+		double monto;
+		Scanner entrada = new Scanner(System.in); 
+		System.out.println("Ingrese el monto a retirar");
+		monto = entrada.nextDouble();
+		
+		
+		if (saldo >= monto && monto >= 0) {
+            saldo -= monto;
+            System.out.println("El saldo disponible es: " + getSaldo());
+            return saldo;
         } else {
-            return false;
-        }
+        	System.out.println("La cantidad indicada no es válida.");
+        	return 0;
+        }	
 	}
-	public boolean depositar(double cantidad) {
-		 if (cantidad >= 0) {
-	         saldo += cantidad;
-	         return true;
+	public double depositar(Transaccion transaccion) {
+		double monto;
+		Scanner entrada = new Scanner(System.in); 
+		System.out.println("Ingrese el monto a depositar");
+		monto = entrada.nextDouble();
+		
+		 if (monto >= 0) {
+	         saldo += monto;
+	         System.out.println("El saldo disponible es: " + getSaldo());
+	         return saldo;
 	        } else {
-	            return false;
+	        	System.out.println("La cantidad indicada no es válida.");
+	        	return 0;
 	        }
 	} 
-	
-
-	public void ejecutarTransaccion() {
-		return ;
-	}
 	
 }
